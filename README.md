@@ -14,7 +14,7 @@ $ php bin/console doctrine:migration:migrate
 $ php bin/console doctrine:fixtures:load
 ```
 
-On MacOS, also update your `/etc/hosts` file with:
+Update your `/etc/hosts` file with:
 
 ```
 127.0.0.1   app.localhost

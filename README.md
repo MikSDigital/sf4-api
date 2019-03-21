@@ -21,8 +21,5 @@ On MacOS, also update your `/etc/hosts` file with:
 127.0.0.1   phpmyadmin.app.localhost
 ```
 
-You may now go to [http://app.localhost/](http://app.localhost/) and
-login using the following credentials:
+You may now go to [http://app.localhost/](http://app.localhost/)
 
-Login: `foo`
-Password: `bar`

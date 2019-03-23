@@ -3,15 +3,14 @@
 namespace App\Controller;
 
 use App\Entity\Movie;
-use App\Repository\MovieRepository;
 use FOS\RestBundle\Controller\ControllerTrait;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 
 class MoviesController extends AbstractController
 {
     use ControllerTrait;
-
 
     /**
      * @Rest\View()
@@ -21,5 +20,19 @@ class MoviesController extends AbstractController
         $movies = $this->getDoctrine()->getRepository(Movie::class)->findAll();
 
         return $movies;
+    }
+
+    /**
+     * @Rest\View(statusCode=201)
+     * @ParamConverter("movie", converter="fos_rest.request_body")
+     * @Rest\NoRoute()
+     */
+    public function postMoviesAction(Movie $movie)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($movie);
+        $em->flush();
+
+        return $movie;
     }
 }

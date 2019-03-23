@@ -17,8 +17,8 @@ $ php bin/console doctrine:fixtures:load
 Update your `/etc/hosts` file with:
 
 ```
-127.0.0.1   app.localhost
-127.0.0.1   phpmyadmin.app.localhost
+0.0.0.1   app.localhost
+0.0.0.1   phpmyadmin.app.localhost
 ```
 
 You may now go to [http://app.localhost/](http://app.localhost/)

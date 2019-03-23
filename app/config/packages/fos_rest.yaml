@@ -9,7 +9,11 @@ fos_rest:
         view_response_listener: 'force'
     body_converter:
         enabled: true
-#    exception:
+        validate: true
+        validation_errors_argument: validationErrors
+    exception:
+        enabled: true
+        exception_controller: 'fos_rest.exception.controller:showAction'
 #        codes:
 #            App\Exception\MyException: 403
 #        messages:

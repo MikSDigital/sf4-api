@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Movie;
+use App\Exception\ValidationException;
 use FOS\RestBundle\Controller\ControllerTrait;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -31,7 +32,7 @@ class MoviesController extends AbstractController
     public function postMoviesAction(Movie $movie, ConstraintViolationListInterface $validationErrors)
     {
         if (count($validationErrors) > 0) {
-            throw new \HttpException(400, "Invalid or incomplete data");
+            throw new ValidationException($validationErrors);
         }
 
         $em = $this->getDoctrine()->getManager();

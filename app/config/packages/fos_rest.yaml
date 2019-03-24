@@ -7,14 +7,16 @@ fos_rest:
         include_format: false
     view:
         view_response_listener: 'force'
+        formats:
+            json: true
     body_converter:
         enabled: true
         validate: true
         validation_errors_argument: validationErrors
     exception:
         enabled: true
-        exception_controller: 'App\Controller\ExceptionController::showAction'
-#        exception_controller: 'fos_rest.exception.controller:showAction'
+#        exception_controller: 'App\Controller\ExceptionController::showAction'
+        exception_controller: 'fos_rest.exception.controller:showAction'
 #        codes:
 #            App\Exception\MyException: 403
 #        messages:
